@@ -13,7 +13,7 @@
  * @apiParam (Point) {Number} year 1956-2018 , -1 will give you the average results of all years
  * @apiParam (Point) {String} country if empty string will give you all the country points of all years
  * 
- * @apiSampleRequest /points/pointsByCountyAndYear
+ * @apiSampleRequest https://young-lake-62037.herokuapp.com/points/pointsByCountyAndYear
  * 
  * @apiParamExample {json} Request-Example:
 {
