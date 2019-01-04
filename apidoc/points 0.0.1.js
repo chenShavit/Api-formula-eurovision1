@@ -4,7 +4,7 @@
  * PointsByCountyAndYear
  * 
  * @apiVersion 0.1.0
- * @apiName Points
+ * @apiName Eurovision
  * @apiGroup Points
  * 
  * @apiDescription Points
@@ -28,9 +28,7 @@
 [
     {
         "_id": "5c26a3c4bf2c15cd92349295",
-        "year": 2015,
-        "country": "Latvia",
-        "voted_to": [
+        "voted": [
             {
                 "country": "Sweden",
                 "points": 12
@@ -136,6 +134,78 @@
                 "points": 0
             }
         ]
+    }
+]
+*
+ * @api {get} /flags/getAllFlags
+ * 
+ * getAllFlags
+@apiGroup Flags
+ * 
+ * @apiDescriptionFlagsAllCountries
+ * 
+ * @apiSampleRequest https://young-lake-62037.herokuapp.com/flags/getAllFlags
+ * 
+ * @apiParamExample {json} Request-Example:
+ * 
+ * 
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+[
+    {
+        "_id": "5c2937d0bf2c15dfc1455697",
+        "Albania": "https://eschome.net/flags/AL.png",
+        "Andorra": "https://eschome.net/flags/AD.png",
+        "Armenia": "https://eschome.net/flags/AM.png",
+        "Australia": "https://eschome.net/flags/AU.png",
+        "Austria": "https://eschome.net/flags/AT.png",
+        "Azerbaijan": "https://eschome.net/flags/AZ.png",
+        "Belarus": "https://eschome.net/flags/BY.png",
+        "Belgium": "https://eschome.net/flags/BE.png",
+        "Bosnia & Herzegovina": "https://eschome.net/flags/BA.png",
+        "Bulgaria": "https://eschome.net/flags/BG.png",
+        "Croatia": "https://eschome.net/flags/HR.png",
+        "Cyprus": "https://eschome.net/flags/CY.png",
+        "Czech Republic": "https://eschome.net/flags/CZ.png",
+        "Denmark": "https://eschome.net/flags/DK.png",
+        "Estonia": "https://eschome.net/flags/EE.png",
+        "Finland": "https://eschome.net/flags/FI.png",
+        "France": "https://eschome.net/flags/FR.png",
+        "FYR Macedonia": "https://eschome.net/flags/MK.png",
+        "Georgia": "https://eschome.net/flags/GE.png",
+        "Germany": "https://eschome.net/flags/DE.png",
+        "Greece": "https://eschome.net/flags/GR.png",
+        "Hungary": "https://eschome.net/flags/HU.png",
+        "Iceland": "https://eschome.net/flags/IS.png",
+        "Ireland": "https://eschome.net/flags/IE.png",
+        "Israel": "https://eschome.net/flags/IL.png",
+        "Italy": "https://eschome.net/flags/IT.png",
+        "Latvia": "https://eschome.net/flags/LV.png",
+        "Lithuania": "https://eschome.net/flags/LT.png",
+        "Luxembourg": "https://eschome.net/flags/LU.png",
+        "Malta": "https://eschome.net/flags/MT.png",
+        "Marocco": "https://eschome.net/flags/MA.png",
+        "Moldova": "https://eschome.net/flags/MD.png",
+        "Monaco": "https://eschome.net/flags/MC.png",
+        "Montenegro": "https://eschome.net/flags/ME.png",
+        "Netherlands": "https://eschome.net/flags/NL.png",
+        "Norway": "https://eschome.net/flags/NO.png",
+        "Poland": "https://eschome.net/flags/PL.png",
+        "Portugal": "https://eschome.net/flags/PT.png",
+        "Romania": "https://eschome.net/flags/RO.png",
+        "Russia": "https://eschome.net/flags/RU.png",
+        "San Marino": "https://eschome.net/flags/SM.png",
+        "Serbia": "https://eschome.net/flags/RS.png",
+        "Serbia & Montenegro": "https://eschome.net/flags/CS.png",
+        "Slovakia": "https://eschome.net/flags/SK.png",
+        "Slovenia": "https://eschome.net/flags/SI.png",
+        "Spain": "https://eschome.net/flags/ES.png",
+        "Sweden": "https://eschome.net/flags/SE.png",
+        "Switzerland": "https://eschome.net/flags/CH.png",
+        "Turkey": "https://eschome.net/flags/TR.png",
+        "Ukraine": "https://eschome.net/flags/UA.png",
+        "United Kingdom": "https://eschome.net/flags/GB.png",
+        "Yugoslavia": "https://eschome.net/flags/YU.png"
     }
 ]
 *

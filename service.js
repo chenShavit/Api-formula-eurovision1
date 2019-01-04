@@ -8,6 +8,8 @@ const sendError = require("./routes/error");
 
 const router_points= require('./routes/points');
 
+const router_flags= require('./routes/flags');
+
 
 const PORT = process.env.PORT || 8000;
 
@@ -37,6 +39,7 @@ function startService(){
   });
 
   app.use('/points', router_points);
+  app.use('/flags', router_flags);
   app.use('/api/', express.static(__dirname + '/webApidoc'));
   app.all('/*', function(req, res) {
       return sendError(res, "404 not found");

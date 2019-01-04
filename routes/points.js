@@ -28,16 +28,30 @@ if((string_dir=="to") && (country=="") && (year==-1)){
   });
   }  
   if((string_dir=="from") && (country!="") && (year>0)){
-    PointsFromByYear.find({country:country,year:year})
-    .then(function(doc){
-      res.json(doc);
-  });
-  }  
+    PointsFromByYear.find({country:country,year:year}, function (err, data) {
+      if (err) {
+        res.send(500);
+        return;
+      }
+      var data = JSON.stringify(data);
+      var jsonData = JSON.parse(data)
+       return res.json({
+      voted: jsonData[0].voted
+        });
+      });
+  }
   if((string_dir=="to") && (country!="") && (year>0)){
-    PointsToByYear.find({country:country,year:year})
-    .then(function(doc){
-      res.json(doc);
-  });
-  } 
+    PointsToByYear.find({country:country,year:year}, function (err, data) {
+      if (err) {
+        res.send(500);
+        return;
+      }
+      var data = JSON.stringify(data);
+      var jsonData = JSON.parse(data)
+       return res.json({
+      voted: jsonData[0].voted
+        });
+      });
+  }
 });
 module.exports = router;
