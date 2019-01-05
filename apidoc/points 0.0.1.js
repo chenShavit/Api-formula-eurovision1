@@ -136,7 +136,6 @@
         ]
     }
 ]
-*
  * @api {get} /flags/getAllFlags
  * 
  * getAllFlags

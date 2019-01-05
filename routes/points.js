@@ -16,16 +16,50 @@ router.post('/pointsByCountyAndYear', function(req, res) {
   let country=req.body.country;
 
   if((string_dir=="from") && (country=="") && (year==-1)){
-    PointsFrom.find({})
-    .then(function(doc){
-      res.json(doc);
-  });
+    PointsFrom.find({}, function (err, data) {
+      if (err) {
+        res.send(500);
+        return;
+      }
+      var data = JSON.stringify(data);
+      var jsonData = JSON.parse(data);
+      var total_points=0;
+      for( var j=0; j<jsonData.length;j++){
+        for( var i=0;i<jsonData[j].voted_to.length;i++){
+         total_points+= jsonData[j].voted_to[i].points
+        }
+      }
+      for( var j=0; j<jsonData.length;j++){
+      for( var i=0;i<jsonData[j].voted_to.length;i++){
+       jsonData[j].voted_to[i].points=Math.ceil(((jsonData[j].voted_to[i].points/total_points)*100));
+      }
+    }
+       return res.json(jsonData);
+
+});
 }
 if((string_dir=="to") && (country=="") && (year==-1)){
-  PointsTo.find({})
-    .then(function(doc){
-      res.json(doc);
-  });
+  PointsTo.find({}, function (err, data) {
+    if (err) {
+      res.send(500);
+      return;
+    }
+    var data = JSON.stringify(data);
+    var jsonData = JSON.parse(data);
+    var total_points=0;
+    for( var j=0; j<jsonData.length;j++){
+      for( var i=0;i<jsonData[j].voted_from.length;i++){
+       total_points+= jsonData[j].voted_from[i].points
+      }
+    }
+    for( var j=0; j<jsonData.length;j++){
+    for( var i=0;i<jsonData[j].voted_to.length;i++){
+     jsonData[j].voted_from[i].points=Math.ceil(((jsonData[j].voted_from[i].points/total_points)*100));
+    }
+  }
+     return res.json(jsonData);
+
+});
   }  
   if((string_dir=="from") && (country!="") && (year>0)){
     PointsFromByYear.find({country:country,year:year}, function (err, data) {
